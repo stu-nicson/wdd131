@@ -1,0 +1,98 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header,
+footer {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: royalblue;
+
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: lightgray;
+    gap: 20px;
+    justify-items: center;
+    padding-bottom: 40px;
+}
+.gallery-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 3rem;
+    margin: 20px 0;
+}
+img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid white;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  
+
+}
+p {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+section {
+  padding: 20px;
+  background-color: white;
+  margin: 1em;
+  border: 1px solid #ccc;
+}
+nav a {
+    padding: 20px;
+    color: black;
+    display: none;
+}
+nav a:hover {
+    text-decoration: none;
+    color: #616061;
+}
+.menu-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+}
+footer {
+    text-align: center;
+}
+
+
+@media screen and (min-width: 700px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+    nav a {
+        display: inline;
+    }
+    nav {
+        text-align: center;
+    }
+}
+          
+@media screen and (min-width: 1000px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
