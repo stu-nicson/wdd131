@@ -1,12 +1,10 @@
-/* GLOBAL STYLES */
 body {
     font-family: Georgia, serif;
     margin: 0;
     padding: 0;
-    border: 4px solid #2C2C2C; /* page border */
+    border: 4px solid #2C2C2C; 
 }
 
-/* HEADER */
 header {
     text-align: center;
     padding: 1.5rem 0;
@@ -14,7 +12,7 @@ header {
 
 header h1 {
     font-size: 2rem;
-    color: #4A2941; /* dark purple */
+    color: #4A2941; 
     margin: 0;
 }
 
@@ -29,37 +27,33 @@ header nav ul {
 }
 
 header nav a {
-    color: #B13A4A; /* muted red */
+    color: #B13A4A; 
     text-decoration: none;
 }
 
-/* DIVIDER LINES */
-/* FIRST LINE: Below the title */
+
 header h1::after {
     content: "";
     display: block;
     height: 2px;
-    background-color: #E4AD6D; /* gold */
+    background-color: #E4AD6D; 
     margin: 10px auto 15px;
 }
 
-/* SECOND LINE: Below the menu */
 header nav::after {
     content: "";
     display: block;
     height: 2px;
-    background-color: #E4AD6D; /* gold */
+    background-color: #E4AD6D; 
     margin: 10px auto 0;
 }
 
-/* MOVIE/BOOK ARTICLE */
 .movie {
     max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
 }
 
-/* MOBILE FIRST — everything centered */
 .details {
     text-align: right;
     margin-bottom: 20px;
@@ -70,11 +64,11 @@ header nav::after {
 }
 
 .stars {
-    color: #DFA93A; /* gold stars */
+    color: #DFA93A; 
 }
 
 .content h2 {
-    color: #B33442; /* red title */
+    color: #B33442; 
     text-align: center;
     margin-top: 0;
 }
@@ -97,7 +91,6 @@ header nav::after {
     margin-top: 30px;
 }
 
-/* DESKTOP LAYOUT */
 @media (min-width: 800px) {
 
     header nav ul {
@@ -125,7 +118,6 @@ header nav::after {
     }
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 1rem 0;
