@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Form</title>
+    <link rel="stylesheet" href="creditcard.css">
+    <script defer src="creditcard.js"></script>
+    <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+
+    <!--PARENT GRID-->
+    <div id="wrapper">
+    <form id="form-grid">
+
+        <div id="front-card" class="card front-card">
+
+            <label for="cardNumber">CARD NUMBER</label>
+            <p id="total">Total: $199</p>
+            <input type="text" id="cardNumber" placeholder="1234 1234 1234 1234" maxlength="16">
+
+            <div id="front-inner-grid">
+
+                <div>
+                    <label for="cardName">CARD HOLDER</label>
+                    <input type="text" id="cardName" placeholder="Full Name">
+                </div>
+
+                <div>
+                    <label for="month">EXPIRATION</label>
+                    <div class="exp-fields">
+                        <input type="text" id="month" placeholder="MM" maxlength="2">
+                        <input type="text" id="year" placeholder="YY" maxlength="2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="back-card" class="card back-card">
+            <div class="black-strip"></div>
+
+            <label for="cvc">CVC/CVV</label>
+            <input type="text" id="cvc" placeholder="xxx" maxlength="3">
+        </div>
+
+        <button type="submit" id="submit-btn">Submit</button>
+
+    </form>
+
+    <p id="feedback"></p>
+</div>
+
+</body>
+</html>
