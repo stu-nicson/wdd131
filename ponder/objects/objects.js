@@ -17,6 +17,11 @@ const aCourse = {
     }
 };
 
+aCourse.code = 'WDD131';
+
+document.querySelector('#courseName').textContent = aCourse.name;
+document.querySelector('#courseCode').textContent = aCourse.code;
+
 function sectionTemplate(section) {
     return `<tr>
         <td>${section.sectionNum}</td>
