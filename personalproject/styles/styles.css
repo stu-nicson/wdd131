@@ -614,6 +614,11 @@ button {
   font-weight: 700;
 }
 
+#resultTitle,
+#resultPrice,
+#resultDescription {
+  transition: opacity 0.2s ease;
+}
 
 /* RESPONSIVE */
 @media (min-width: 700px) {

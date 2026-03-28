@@ -34,10 +34,19 @@ const packages = [
 ];
 
 function toggleMenu() {
+  if (!navLinks || !menuToggle) return;
+
   navLinks.classList.toggle("open");
 
   const isOpen = navLinks.classList.contains("open");
   menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function closeMenu() {
+  if (!navLinks || !menuToggle) return;
+
+  navLinks.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
 }
 
 function displayRecommendation(pkg) {
@@ -45,12 +54,25 @@ function displayRecommendation(pkg) {
     return;
   }
 
-  resultTitle.textContent = pkg.name;
-  resultPrice.textContent = `Estimated starting price: $${pkg.price}`;
-  resultDescription.textContent = pkg.description;
+  resultTitle.style.opacity = "0";
+  resultPrice.style.opacity = "0";
+  resultDescription.style.opacity = "0";
+
+  setTimeout(() => {
+    resultTitle.textContent = pkg.name;
+    resultPrice.textContent = `Estimated starting price: $${pkg.price}`;
+    resultDescription.textContent = pkg.description;
+
+    resultTitle.style.opacity = "1";
+    resultPrice.style.opacity = "1";
+    resultDescription.style.opacity = "1";
+  }, 200);
 }
 
 function updateRecommendation(homeType, priority) {
+  localStorage.setItem("homeType", homeType);
+  localStorage.setItem("priority", priority);
+
   const matches = packages.filter((pkg) => {
     return pkg.homeTypes.includes(homeType) && pkg.priorities.includes(priority);
   });
@@ -126,6 +148,43 @@ function handleContactFormSubmit(event) {
   contactForm.reset();
 }
 
+function highlightActiveNavLink() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinkList = document.querySelectorAll(".nav-links a");
+
+  navLinkList.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    if (href === currentPage) {
+      link.style.color = "#22C55E";
+    }
+
+    link.addEventListener("click", closeMenu);
+  });
+}
+
+function loadSavedRecommendation() {
+  if (!finderForm) return;
+
+  const homeTypeSelect = document.querySelector("#homeType");
+  const prioritySelect = document.querySelector("#priority");
+
+  const savedHome = localStorage.getItem("homeType");
+  const savedPriority = localStorage.getItem("priority");
+
+  if (savedHome && homeTypeSelect) {
+    homeTypeSelect.value = savedHome;
+  }
+
+  if (savedPriority && prioritySelect) {
+    prioritySelect.value = savedPriority;
+  }
+
+  if (savedHome && savedPriority) {
+    updateRecommendation(savedHome, savedPriority);
+  }
+}
+
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", toggleMenu);
 }
@@ -144,3 +203,8 @@ if (finderForm) {
 if (contactForm) {
   contactForm.addEventListener("submit", handleContactFormSubmit);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  highlightActiveNavLink();
+  loadSavedRecommendation();
+});
