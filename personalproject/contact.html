@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Snake River Smart Homes</title>
+
+  <meta
+    name="description"
+    content="Contact Snake River Smart Homes to request a quote for smart home installation including lighting, security, cameras, and automation."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">⌂</span>
+        Snake River Smart Homes
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero-subpage">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Request a quote or ask a question</h1>
+        <p class="hero-description">
+          Tell us about your home and what you’re looking for, and we’ll help
+          you find the right smart home setup.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact section">
+      <div class="container contact-grid">
+
+        <!-- LEFT SIDE -->
+        <div>
+          <p class="eyebrow">Get Started</p>
+          <h2>Let’s build your smart home</h2>
+          <p class="contact-copy">
+            Whether you're starting with lighting, upgrading security, or
+            planning a full smart home system, we’ll help you choose the right
+            setup based on your goals and budget.
+          </p>
+
+          <div class="contact-info">
+            <p><strong>Email:</strong> info@snakeriversmarthomes.com</p>
+            <p><strong>Service Area:</strong> Idaho Falls, Rexburg, surrounding areas</p>
+            <p><strong>Response Time:</strong> Usually within 24 hours</p>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE FORM -->
+        <form class="contact-form" id="contactForm">
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+          <label for="homeType">Home Type</label>
+          <select id="homeType" name="homeType">
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="large-home">Large Home</option>
+          </select>
+
+          <label for="interest">What are you most interested in?</label>
+          <select id="interest" name="interest">
+            <option value="lighting">Smart Lighting</option>
+            <option value="security">Home Security</option>
+            <option value="cameras">Cameras & Doorbells</option>
+            <option value="automation">Automation</option>
+            <option value="full">Full Setup</option>
+          </select>
+
+          <label for="message">Project Details</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell us about your home and what you're looking for"
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Send Request
+          </button>
+
+          <!-- SUCCESS MESSAGE -->
+          <p id="formSuccess" class="form-success" hidden>
+            ✅ Your request has been submitted! We’ll get back to you soon.
+          </p>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Snake River Smart Homes</p>
+      <p>Smarter living starts at home.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
