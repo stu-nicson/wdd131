@@ -28,6 +28,7 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <link rel="stylesheet" href="recipes.css">
+  <script src="recipes.js" defer></script>
 </head>
 <body>
   <header>
@@ -39,40 +40,20 @@
 
   <main>
     <section class="search-section">
-      <form class="search-bar" action="#" method="get">
-        <input type="text" placeholder="Search recipes..." aria-label="Search recipes">
+      <form id="searchForm" class="search-bar" action="#" method="get">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search recipes..."
+          aria-label="Search recipes"
+        >
         <button type="submit">
           <img src="images/search.svg" alt="Search icon">
         </button>
       </form>
     </section>
 
-    <section class="recipe-card">
-      <img src="images/apple-crisp.jpg" alt="Apple crisp in a baking dish" class="recipe-image">
-
-      <div class="recipe-content">
-        <p class="tag">Dessert</p>
-        <h2>Apple Crisp</h2>
-
-        <span
-          class="rating"
-          role="img"
-          aria-label="Rating: 4 out of 5 stars"
-        >
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-
-        <p class="description">
-          This easy apple crisp is full of warm cinnamon apples and a buttery oat topping.
-          It is the perfect dessert for fall evenings, family dinners, or whenever you want
-          something simple and comforting.
-        </p>
-      </div>
-    </section>
+    <section id="recipeContainer"></section>
   </main>
 
   <footer>
