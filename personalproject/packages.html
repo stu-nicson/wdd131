@@ -65,15 +65,11 @@
         <div class="section-heading">
           <p class="eyebrow">Compare Packages</p>
           <h2>Smart home packages built for different needs</h2>
-          <p>
-            Each package is designed around a different level of convenience,
-            security, and automation. Customers can start small and expand over
-            time or choose a more complete setup right away.
-          </p>
         </div>
 
         <div class="packages-grid">
-          <article class="package-card">
+
+          <article class="package-card" data-package="Starter">
             <h3>Starter</h3>
             <p class="price">Starting at $299</p>
             <ul>
@@ -83,13 +79,11 @@
               <li>Simple app-based control</li>
             </ul>
             <p>
-              The Starter package is best for customers who want an easy entry
-              point into smart home technology. It focuses on convenience and
-              comfort without adding too much complexity.
+              A simple entry point focused on convenience and everyday comfort.
             </p>
           </article>
 
-          <article class="package-card featured">
+          <article class="package-card" data-package="Security">
             <p class="tag">Most Popular</p>
             <h3>Security</h3>
             <p class="price">Starting at $699</p>
@@ -100,13 +94,11 @@
               <li>Mobile alerts and monitoring</li>
             </ul>
             <p>
-              The Security package is ideal for customers who want better home
-              awareness, easier access control, and more peace of mind around
-              entrances and daily activity.
+              A strong choice for customers focused on safety, monitoring, and control.
             </p>
           </article>
 
-          <article class="package-card">
+          <article class="package-card" data-package="Premium">
             <h3>Premium</h3>
             <p class="price">Starting at $1199</p>
             <ul>
@@ -116,76 +108,10 @@
               <li>Advanced voice integration</li>
             </ul>
             <p>
-              The Premium package is designed for customers who want a more
-              complete connected home experience with multiple systems working
-              together in one setup.
+              A complete smart home system with automation, security, and integration.
             </p>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Package Details</p>
-          <h2>Which package is right for you?</h2>
-          <p>
-            The right choice depends on your home size, priorities, and budget.
-            These package options help simplify that decision.
-          </p>
-        </div>
-
-        <div class="service-detail">
-          <div class="service-copy">
-            <p class="eyebrow">Starter Package</p>
-            <h2>A clean first step into smart home living</h2>
-            <p>
-              The Starter package is built for people who want to begin with the
-              most approachable side of smart home technology. It works well for
-              apartments, smaller homes, or anyone who wants better convenience
-              through lighting, smart plugs, and simple assistant integration.
-            </p>
-            <p>
-              This package keeps things easy to manage while still providing a
-              visible upgrade in comfort and control.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-detail">
-          <div class="service-copy">
-            <p class="eyebrow">Security Package</p>
-            <h2>Focused on awareness, access, and protection</h2>
-            <p>
-              The Security package is the best fit for customers who care most
-              about seeing what is happening around the home and controlling who
-              has access. Smart locks, doorbell cameras, and sensors create a
-              stronger sense of day-to-day awareness.
-            </p>
-            <p>
-              This option is especially useful for families, homeowners, and
-              customers who want a more practical and reassuring setup.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-detail">
-          <div class="service-copy">
-            <p class="eyebrow">Premium Package</p>
-            <h2>A more complete connected home system</h2>
-            <p>
-              The Premium package is designed for customers who want their smart
-              home devices to work together in a more complete and personalized
-              way. It combines lighting, security, and automation features into
-              one cohesive system.
-            </p>
-            <p>
-              This package is best for larger homes or customers who want a
-              stronger long-term smart home setup instead of just one or two
-              isolated upgrades.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -195,23 +121,22 @@
         <div>
           <div class="section-heading">
             <p class="eyebrow">Interactive Tool</p>
-            <h2>Find your recommended package</h2>
+            <h2>Find your smart home package</h2>
             <p>
-              Choose a home type and top priority to see which package may fit
-              your situation best.
+              Choose a home type and your top priority to get a recommended package.
             </p>
           </div>
 
           <form class="finder-form" id="finderForm">
             <label for="homeType">Home Type</label>
-            <select id="homeType" name="homeType">
+            <select id="homeType">
               <option value="apartment">Apartment</option>
               <option value="house">House</option>
               <option value="large-home">Large Home</option>
             </select>
 
             <label for="priority">Top Priority</label>
-            <select id="priority" name="priority">
+            <select id="priority">
               <option value="convenience">Convenience</option>
               <option value="security">Security</option>
               <option value="automation">Automation</option>
@@ -224,7 +149,8 @@
         </div>
 
         <div class="result-card" id="resultCard">
-          <p class="result-label">Recommended Package</p>
+          <span class="recommended-badge" id="recommendedBadge">Recommended</span>
+          <p class="result-label">Your Match</p>
           <h3 id="resultTitle">Starter</h3>
           <p id="resultPrice">Estimated starting price: $299</p>
           <p id="resultDescription">
@@ -233,39 +159,9 @@
 
           <div class="result-highlight">
             <p>
-              Best for customers who want a practical introduction to smart home
+              Best for customers who want a clean introduction to smart home
               technology without overcomplicating the setup.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container benefits-grid">
-        <div>
-          <p class="eyebrow">Why Package Planning Helps</p>
-          <h2>A clearer way to choose your next upgrade</h2>
-          <p class="benefit-intro">
-            Package options help customers compare value more easily and think
-            about what matters most before investing in a smart home setup.
-          </p>
-        </div>
-
-        <div class="benefit-list">
-          <div class="benefit-item">
-            <h3>Easier comparison</h3>
-            <p>See how each package differs in features, purpose, and budget.</p>
-          </div>
-
-          <div class="benefit-item">
-            <h3>Better planning</h3>
-            <p>Choose a setup that fits your current goals while leaving room to expand.</p>
-          </div>
-
-          <div class="benefit-item">
-            <h3>More confidence</h3>
-            <p>Understand what you are paying for and why one package may fit better.</p>
           </div>
         </div>
       </div>
@@ -277,22 +173,18 @@
           <p class="eyebrow">Next Step</p>
           <h2>Need help deciding?</h2>
           <p class="contact-copy">
-            Reach out for a quote or learn more about the services behind each
-            package option.
+            Reach out for a quote or explore services to learn more.
           </p>
         </div>
 
         <div class="contact-form">
-          <p>
-            Snake River Smart Homes can help customers compare their options and
-            choose the package that best fits their home, budget, and priorities.
-          </p>
           <a href="services.html" class="btn btn-secondary btn-full">Explore Services</a>
           <br><br>
           <a href="contact.html" class="btn btn-primary btn-full">Contact Us</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">

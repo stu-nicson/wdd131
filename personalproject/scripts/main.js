@@ -2,12 +2,15 @@ const menuToggle = document.querySelector("#menuToggle");
 const navLinks = document.querySelector("#navLinks");
 
 const finderForm = document.querySelector("#finderForm");
+const resultCard = document.querySelector("#resultCard");
 const resultTitle = document.querySelector("#resultTitle");
 const resultPrice = document.querySelector("#resultPrice");
 const resultDescription = document.querySelector("#resultDescription");
 
 const contactForm = document.querySelector("#contactForm");
 const formSuccess = document.querySelector("#formSuccess");
+
+const recommendedBadge = document.querySelector("#recommendedBadge");
 
 const packages = [
   {
@@ -49,14 +52,34 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+function highlightPackageCard(packageName) {
+  const cards = document.querySelectorAll(".package-card");
+
+  cards.forEach((card) => {
+    card.classList.remove("active");
+  });
+
+  const match = document.querySelector(`.package-card[data-package="${packageName}"]`);
+
+  if (match) {
+    match.classList.add("active");
+  }
+}
+
 function displayRecommendation(pkg) {
-  if (!resultTitle || !resultPrice || !resultDescription) {
+  if (!resultTitle || !resultPrice || !resultDescription || !resultCard) {
     return;
   }
 
   resultTitle.style.opacity = "0";
   resultPrice.style.opacity = "0";
   resultDescription.style.opacity = "0";
+
+  resultCard.classList.remove("active", "pulse");
+
+  if (recommendedBadge) {
+    recommendedBadge.classList.remove("show");
+  }
 
   setTimeout(() => {
     resultTitle.textContent = pkg.name;
@@ -66,6 +89,18 @@ function displayRecommendation(pkg) {
     resultTitle.style.opacity = "1";
     resultPrice.style.opacity = "1";
     resultDescription.style.opacity = "1";
+
+    resultCard.classList.add("active", "pulse");
+    highlightPackageCard(pkg.name);
+
+    if (recommendedBadge) {
+      recommendedBadge.classList.add("show");
+    }
+
+    resultCard.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
   }, 200);
 }
 
@@ -185,6 +220,43 @@ function loadSavedRecommendation() {
   }
 }
 
+function selectPackageByCard(packageName) {
+  const selectedPackage = packages.find((pkg) => pkg.name === packageName);
+
+  if (!selectedPackage) return;
+
+  displayRecommendation(selectedPackage);
+
+  if (finderForm) {
+    const homeTypeSelect = document.querySelector("#homeType");
+    const prioritySelect = document.querySelector("#priority");
+
+    if (homeTypeSelect && prioritySelect) {
+      if (packageName === "Starter") {
+        homeTypeSelect.value = "apartment";
+        prioritySelect.value = "convenience";
+      } else if (packageName === "Security") {
+        homeTypeSelect.value = "house";
+        prioritySelect.value = "security";
+      } else if (packageName === "Premium") {
+        homeTypeSelect.value = "large-home";
+        prioritySelect.value = "automation";
+      }
+    }
+  }
+}
+
+function enablePackageCardClicks() {
+  const cards = document.querySelectorAll(".package-card[data-package]");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const packageName = card.dataset.package;
+      selectPackageByCard(packageName);
+    });
+  });
+}
+
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", toggleMenu);
 }
@@ -207,4 +279,5 @@ if (contactForm) {
 document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNavLink();
   loadSavedRecommendation();
+  enablePackageCardClicks();
 });
